@@ -1,0 +1,351 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model OSM {
+  OSM_SERIE                      Int       @db.SmallInt
+  OSM_NUM                        Int
+  OSM_PAC                        Int
+  OSM_DTHR                       DateTime  @db.DateTime
+  OSM_CNV                        String    @db.Char(3)
+  OSM_PROC                       String    @db.Char(1)
+  OSM_MREQ                       Int
+  OSM_STR                        String    @db.Char(3)
+  OSM_STATUS                     String?   @db.Char(1)
+  OSM_IND_URG                    String    @db.Char(1)
+  OSM_HSP_NUM                    Int?      @db.SmallInt
+  OSM_TIPO                       String?   @db.Char(1)
+  OSM_DT_RESULT                  DateTime  @db.DateTime
+  OSM_ATEND                      String?   @db.Char(3)
+  OSM_OBS_COLETA                 String?   @db.VarChar(100)
+  OSM_LTA_COD                    String?   @db.Char(8)
+  OSM_CTLE_CNV                   String?   @db.VarChar(30)
+  OSM_NOTA_SALA                  String?   @db.Char(1)
+  OSM_CID_COD                    String?   @db.Char(8)
+  OSM_OBS                        String?   @db.VarChar(255)
+  OSM_MCNV                       String?   @db.Char(30)
+  OSM_PADRAO_PRECO               Int?
+  OSM_DT_SOLIC                   DateTime? @db.DateTime
+  OSM_HORA_ESP                   String?   @db.Char(1)
+  OSM_SUS_GRUPO_ATENDE           String?   @db.Char(4)
+  OSM_SUS_TIPO_ATENDE            String?   @db.Char(4)
+  OSM_CNPJ_SOLIC                 String?   @db.Char(16)
+  OSM_SAP_COD                    Int?
+  OSM_LIB_PAG                    String?   @db.Char(1)
+  OSM_LIB_PAG_DTHR               DateTime? @db.DateTime
+  OSM_LIB_PAG_USR                String?   @db.Char(10)
+  OSM_MTE_SERIE_BENEF            Int?
+  OSM_MTE_SEQ_BENEF              Int?
+  OSM_OSM_SERIE_BENEF            Int?      @db.SmallInt
+  OSM_OSM_NUM_BENEF              Int?
+  OSM_LIB_PAG_SERIE              Int?
+  OSM_LIB_PAG_NUM                Int?
+  OSM_ASO_MES_REF                String?   @db.Char(6)
+  OSM_NUM_EXTERNO                Int?
+  OSM_CML_CNV_COD                String?   @db.Char(3)
+  OSM_LEG_COD                    String?   @db.Char(5)
+  OSM_CML_CONV_COD               String?   @db.Char(4)
+  OSM_CML_CONV_NOME              String?   @db.Char(20)
+  OSM_LIB_PAG_NFL_SERIE          String?   @db.VarChar(5)
+  OSM_LIB_PAG_NFL_NUM            Int?
+  OSM_IND_COLETA_DOM             String?   @db.Char(1)
+  OSM_MREQ_IND_SLINE             String?   @db.Char(1)
+  OSM_USR_LOGIN_CAD              String?   @db.Char(10)
+  OSM_MREQ_2                     Int?
+  OSM_MREQ_3                     Int?
+  OSM_DT_SOLIC_2                 DateTime? @db.DateTime
+  OSM_DT_SOLIC_3                 DateTime? @db.DateTime
+  OSM_NOTA_SALA_COBRANCA_MAT     String?   @db.Char(1)
+  OSM_MCNV_PROTOCOLO             Decimal?  @db.Decimal(10, 0)
+  OSM_TIPO_ACIDENTE              Int?
+  OSM_TIPO_DOENCA                String?   @db.Char(1)
+  OSM_TEMPO_DOENCA               Int?
+  OSM_ESCALA_DOENCA              String?   @db.Char(1)
+  OSM_TISS_TIPO_SAIDA            String?   @db.Char(2)
+  OSM_TISS_INDIC_CLINICA         String?   @db.VarChar(500)
+  OSM_TISS_TIPO_ATENDE           String?   @db.Char(2)
+  OSM_SUS_IDADE                  Int?
+  OSM_SUS_SEXO                   String?   @db.Char(1)
+  OSM_DTHR_SAIDA                 DateTime? @db.DateTime
+  OSM_EMPNOME_SOLIC              String?   @db.VarChar(100)
+  OSM_TISS_GUIA_PRINCIPAL        String?   @db.VarChar(30)
+  OSM_CNES_SOLIC                 String?   @db.VarChar(20)
+  OSM_W_LOGIN                    String?   @db.VarChar(50)
+  OSM_W_SENHA                    String?   @db.VarChar(20)
+  OSM_NUM_EXTERNO_ALFA           String?   @db.VarChar(30)
+  OSM_PLN_COD                    String?   @db.Char(3)
+  OSM_OBS_TISS                   String?   @db.VarChar(255)
+  OSM_PSV_INDIC                  Int?
+  OSM_IMP_ETIQ                   String?   @db.Text
+  OSM_IND_WEB                    String?   @db.Char(1)
+  OSM_PAC_ETIQUETA_CIP_LSF       String?   @db.Char(10)
+  OSM_ETIQUETA_CIP_LSF           String?   @db.Char(10)
+  OSM_TIPO_AUDIT                 String?   @db.Char(1)
+  OSM_PLANSERV_RAT_EMPRESA       String?   @db.VarChar(14)
+  osm_cod_cebim                  String?   @db.VarChar(100)
+  osm_email_result               String?   @db.VarChar(100)
+  osm_cr_cor                     String?   @db.Char(10)
+  osm_planserv_bm_mot_tipo       String?   @db.Char(3)
+  osm_planserv_bm_mot_cod        String?   @db.Char(5)
+  osm_obs_extenso                String?   @db.Text
+  osm_trak_passagem              String?   @db.VarChar(100)
+  osm_id_alvaro                  String?   @db.VarChar(30)
+  osm_obs_pend_b2b               String?   @db.VarChar(100)
+  osm_ind_vacina                 String?   @db.Char(1)
+  osm_lib_pag_prt                String?   @db.Char(1)
+  osm_tiss_guia_operadora        String?   @db.VarChar(30)
+  osm_planserv_rat_dt_emis       DateTime? @db.DateTime
+  osm_dthr_biometria_unimed      DateTime? @db.DateTime
+  osm_resultado_biometria_unimed String?   @db.VarChar(10)
+  OSM_IND_ANTECIPADA             String?   @db.Char(1)
+  osm_ori_sol                    String?   @db.Char(1)
+  osm_click_protocolo            String?   @db.VarChar(30)
+  osm_click_requisicao           String?   @db.VarChar(100)
+  osm_click_ind_integracao       String?   @db.VarChar(20)
+  osm_dthr_exp                   DateTime? @db.DateTime
+  osm_orp_num                    Int?
+  osm_sus_ind_prog_transp        String?   @db.Char(1)
+  OSM_COD_CEBIM_2                String?   @db.VarChar(100)
+  OSM_COD_CEBIM_3                String?   @db.VarChar(100)
+  osm_mcnv_protocolo_v2          String?   @db.VarChar(20)
+  osm_token                      String?   @db.VarChar(255)
+  osm_cod_justificativa          Int?
+  osm_status_confirmacao         String?   @db.VarChar(25)
+  osm_id_integra                 String?   @db.VarChar(100)
+  osm_tp_ident_benef             String?   @db.Char(2)
+  osm_utc                        String?   @db.VarChar(20)
+  osm_ind_verao                  String?   @db.Char(1)
+  osm_regime_atend               String?   @db.Char(3)
+  osm_saude_ocup                 String?   @db.Char(3)
+  osm_cobertura_esp              String?   @db.Char(3)
+
+  SMM SMM[]
+
+  @@id([OSM_SERIE, OSM_NUM], map: "OSM_PK")
+  @@index([OSM_PAC, OSM_HSP_NUM], map: "ix_IndexName")
+  @@index([OSM_CML_CNV_COD], map: "osm_cnv_cml_idx")
+  @@index([OSM_CNV, OSM_DTHR], map: "osm_cnv_dthr_idx")
+  @@index([OSM_CTLE_CNV], map: "osm_ctle_idx")
+  @@index([OSM_DT_RESULT], map: "osm_dt_result_idx")
+  @@index([OSM_DTHR], map: "osm_dthr_idx")
+  @@index([OSM_LIB_PAG_DTHR], map: "osm_lib_pag_dthr_idx")
+  @@index([OSM_LIB_PAG_NFL_SERIE, OSM_LIB_PAG_NFL_NUM], map: "osm_nfl_idx")
+  @@index([OSM_NUM_EXTERNO_ALFA], map: "osm_num_ext_idx")
+  @@index([OSM_PAC, OSM_DTHR], map: "osm_pac_idx")
+  @@index([OSM_SAP_COD], map: "osm_sap_idx")
+  @@index([OSM_STR, OSM_DTHR], map: "osm_str_idx")
+  @@index([OSM_W_LOGIN, OSM_W_SENHA], map: "osm_w_login_idx")
+}
+
+model SMM {
+  SMM_OSM_SERIE              Int       @db.SmallInt
+  SMM_OSM                    Int
+  SMM_NUM                    Int
+  SMM_TPCOD                  String    @db.Char(1)
+  SMM_COD                    String    @db.Char(8)
+  SMM_QT                     Decimal   @db.Decimal(8, 0)
+  SMM_EXEC                   String    @db.Char(1)
+  SMM_SFAT                   String    @db.Char(1)
+  SMM_FAT_SERIE              Int?      @db.SmallInt
+  SMM_FAT                    Int?
+  SMM_REP                    String    @db.Char(10)
+  SMM_STR                    String    @db.Char(3)
+  SMM_MED                    Int
+  SMM_VLCH                   Decimal   @db.Decimal(4, 0)
+  SMM_VLR                    Float
+  SMM_RX                     Float?
+  SMM_AUX                    Int?
+  SMM_VIA_ACESSO             String?   @db.Char(1)
+  SMM_FTE_SERIE              Int?      @db.SmallInt
+  SMM_FTE_NUM                Int?
+  SMM_DTHR_EXEC              DateTime? @db.DateTime
+  SMM_NUM_PAI                Int?
+  SMM_LAC_NUM                Decimal?  @db.Decimal(6, 0)
+  SMM_PAC_REG                Int?
+  SMM_HSP_NUM                Int?      @db.SmallInt
+  SMM_CTH_NUM                Int?
+  SMM_CNV_COD                String?   @db.Char(3)
+  SMM_AMO_COD                String?   @db.Char(5)
+  SMM_OBS_AMOSTRA            String?   @db.VarChar(100)
+  SMM_SENHA                  String?   @db.Char(20)
+  SMM_IND_URG                String?   @db.VarChar(1)
+  SMM_MNS_SERIE              Int?
+  SMM_MNS_NUM                Int?
+  SMM_HON_SEQ                Decimal?  @db.Decimal(8, 0)
+  SMM_HORA_ESP               String?   @db.Char(1)
+  SMM_ESP                    String?   @db.Char(3)
+  SMM_PAI_SMK_TIPO           String?   @db.Char(1)
+  SMM_PAI_SMK_COD            String?   @db.Char(8)
+  SMM_YYMM                   String?   @db.VarChar(6)
+  SMM_DTHR_PEND              DateTime? @db.DateTime
+  SMM_TIPO_FATURA            String?   @db.Char(1)
+  SMM_PRE_CCV                String?   @db.VarChar(10)
+  SMM_PACOTE                 String?   @db.VarChar(1)
+  SMM_DTHR_COLETA            DateTime? @db.DateTime
+  SMM_USR_LOGIN_LANC         String?   @db.Char(10)
+  SMM_DTHR_LANC              DateTime? @db.DateTime
+  SMM_DTHR_ALTER             DateTime? @db.DateTime
+  SMM_MTE_SERIE              Int?
+  SMM_MTE_SEQ                Int?
+  SMM_AJUSTE_VLR             Float?
+  SMM_MOG_COD_AJUSTE         Int?
+  SMM_PRECO_CUSTO            Float?
+  SMM_SENHA_ATENDENTE        String?   @db.VarChar(30)
+  SMM_SENHA_DTHR_LIB         DateTime? @db.DateTime
+  SMM_SMA_SERIE              Int?
+  SMM_SMA_NUM                Int?
+  SMM_ISM_SEQ                Int?
+  SMM_MOTIVO_CANCELA         String?   @db.VarChar(100)
+  SMM_DT_RESULT              DateTime? @db.DateTime
+  SMM_USR_LOGIN_COLETA       String?   @db.Char(10)
+  SMM_LTA_COD                String?   @db.Char(8)
+  SMM_OBS_PEND               String?   @db.VarChar(100)
+  SMM_CTLE_CNV               String?   @db.Char(15)
+  SMM_NO_RECALC              String?   @db.Char(1)
+  SMM_AJUSTE_ESTORNO         Float?
+  SMM_VLR_ESTORNO            Float?
+  SMM_VLR_COPARTIC           Float?
+  SMM_VLR_DESCONTO           Float?
+  SMM_COD_AMOSTRA            String?   @db.VarChar(20)
+  SMM_COD_EXTERNO            String?   @db.VarChar(20)
+  SMM_SEQ_AMOSTRA            Int?
+  SMM_SENHA_DTHR_VALID       DateTime? @db.DateTime
+  SMM_CML_FAT_SERIE          Int?      @db.SmallInt
+  SMM_CML_FAT_NUM            Int?
+  SMM_CML_VLR                Float?
+  SMM_IND_ANEXO              String?   @db.Char(1)
+  SMM_PSC_NUM                Decimal?  @db.Decimal(5, 0)
+  SMM_CUSTO_OPER             Decimal?  @db.Decimal(10, 4)
+  SMM_VL_FILME               Decimal?  @db.Decimal(10, 2)
+  SMM_VL_CUSTO_OPER          Decimal?  @db.Decimal(10, 2)
+  SMM_DESC_CONV              Float?
+  SMM_ETI_COD_AMOSTRA        String?   @db.VarChar(20)
+  SMM_CML_QT                 Decimal?  @db.Decimal(4, 0)
+  SMM_SUS_NF_NUM             Int?
+  SMM_MREQ_1                 String?   @db.Char(1)
+  SMM_MREQ_2                 String?   @db.Char(1)
+  SMM_MREQ_3                 String?   @db.Char(1)
+  SMM_IND_EXPORT_ZERO        String?   @db.Char(1)
+  SMM_IND_RESULT_PARCIAL     String?   @db.Char(1)
+  SMM_DOCNUM_AUT             String?   @db.VarChar(20)
+  SMM_CODAUT_AUT             String?   @db.VarChar(20)
+  SMM_CODMSG_AUT             String?   @db.VarChar(5)
+  SMM_AUDITO_STATUS          String?   @db.Char(1)
+  SMM_AUDITO_DTHR            DateTime? @db.DateTime
+  SMM_AUDITO_USR_LOGIN       String?   @db.Char(10)
+  SMM_AUDITO_OBS             String?   @db.VarChar(50)
+  SMM_QT_FRAC                Decimal?  @db.Decimal(6, 2)
+  SMM_SUS_NF_CNPJ            String?   @db.VarChar(16)
+  SMM_TAB_COD                String?   @db.Char(3)
+  SMM_SUS_PROC_ESP           String?   @db.Char(1)
+  SMM_CANC_MOT_TIPO          String?   @db.Char(3)
+  SMM_CANC_MOT_COD           String?   @db.Char(5)
+  SMM_PERC_REDUC             Decimal?  @db.Decimal(6, 2)
+  SMM_PRE_CCV_BK             String?   @db.VarChar(10)
+  SMM_TAB_COD_BK             String?   @db.VarChar(3)
+  SMM_TISS_TECNICA           String?   @db.Char(1)
+  SMM_ORDEM_AIH              Int?
+  SMM_RCI_SERIE              Int?      @db.SmallInt
+  SMM_RCI_NUM                Int?
+  SMM_ECI_FUNCAO             String?   @db.Char(1)
+  SMM_SUS_NF_CNPJ_FABRIC     String?   @db.VarChar(16)
+  SMM_SUS_NF_SERIE           String?   @db.VarChar(20)
+  SMM_SUS_NF_LOTE            String?   @db.VarChar(20)
+  SMM_SUS_REG_ANVISA         String?   @db.VarChar(20)
+  SMM_CTLE_CNV_HI            String?   @db.Char(15)
+  SMM_P_OSM_SERIE            Int?      @db.SmallInt
+  SMM_P_OSM_NUM              Int?
+  SMM_P_SMM_NUM              Int?
+  SMM_TISS_IND_GUIA_ITEM     String?   @db.Char(1)
+  SMM_TISS_ODONTO_DENTE      String?   @db.VarChar(5)
+  SMM_TISS_ODONTO_REGIAO     String?   @db.VarChar(5)
+  SMM_TISS_ODONTO_FACE       String?   @db.VarChar(5)
+  SMM_GR_SES_ID              Int?
+  SMM_PERC_REDUC_VLR_BASE    Decimal?  @db.Decimal(20, 10)
+  SMM_IND_PRT                String?   @db.Char(1)
+  SMM_RECIPIENTE_LSF         String?   @db.Char(10)
+  smm_rpi_serie              Int?
+  smm_rpi_num                Int?
+  smm_etq_lote_b2b           String?   @db.VarChar(30)
+  smm_tiss_stat_aut          String?   @db.VarChar(10)
+  smm_tiss_mdl               Int?
+  smm_lib_cc                 String?   @db.VarChar(1)
+  smm_cod_amostra_ini        String?   @db.VarChar(20)
+  smm_ind_rateio             String?   @db.Char(1)
+  smm_pro_cod                Decimal?  @db.Decimal(6, 0)
+  smm_cce_num                Int?
+  smm_lip_id                 Int?
+  smm_gmr_cod                Int?
+  smm_so_ind_aproveita       String?   @db.Char(1)
+  smm_tam_subconta           Int?
+  smm_vac_local_apl          String?   @db.Char(3)
+  smm_vac_via_apl            String?   @db.Char(1)
+  smm_vac_usr_apl            String?   @db.Char(10)
+  smm_vac_usr_lanc           String?   @db.Char(10)
+  smm_vac_dthr_lanc          DateTime? @db.DateTime
+  smm_lot_num                String?   @db.Char(20)
+  smm_vcn_dose               Int?
+  smm_senha_final            String?   @db.Char(1)
+  smm_loc_cod                String?   @db.Char(3)
+  smm_ind_sub_pacote         String?   @db.Char(1)
+  smm_dse_id                 Int?
+  smm_vlr_sem_reduc          Decimal?  @db.Decimal(20, 10)
+  smm_ind_click              String?   @db.VarChar(1)
+  smm_epl_serie              Int?
+  smm_epl_num                Int?
+  smm_tiss_guia_operadora    String?   @db.VarChar(30)
+  smm_dthr_exp               DateTime? @db.DateTime
+  smm_sus_vinculo            String?   @db.Char(2)
+  smm_ipasgo_ato             Int?
+  smm_token                  String?   @db.VarChar(255)
+  smm_cod_justificativa      Int?
+  smm_status_confirmacao     String?   @db.VarChar(25)
+  smm_funcao_ipasgo          Int?
+  smm_assist_pediatra_ipasgo String?   @db.Char(1)
+  smm_sequencial             Int?
+  smm_sequencial_autorizado  Int?
+  smm_guia_pai               String?   @db.VarChar(30)
+  smm_ind_exporta            String?   @db.Char(1)
+  smm_exs_item_id            Int?
+  smm_mot_tipo_cancel_rpi    String?   @db.Char(3)
+  smm_mot_cod_cancel_rpi     String?   @db.Char(5)
+  smm_obs_cancel_rpi         String?   @db.VarChar(255)
+  smm_id_integra             String?   @db.VarChar(100)
+  smm_dthr_ref_exp_tiss      DateTime? @db.DateTime
+  smm_pre_ccv_aut            String?   @db.VarChar(15)
+  smm_vlr_hora_esp           Float?
+  smm_consolidou_na_nfs      String?   @db.Char(1)
+  smm_dthr_xml_fatura        DateTime? @db.Date
+  smm_lote_b2b_fleury        String?   @db.VarChar(30)
+  smm_id_pleres              String?   @db.VarChar(50)
+
+  OSM OSM @relation(fields: [SMM_OSM_SERIE, SMM_OSM], references: [OSM_SERIE, OSM_NUM], onUpdate: NoAction, map: "smm_osm_fk")
+
+  @@id([SMM_OSM_SERIE, SMM_OSM, SMM_NUM], map: "SMM_PK")
+  @@index([SMM_COD_EXTERNO], map: "idx_smm_cod_ext")
+  @@index([SMM_EXEC], map: "idx_smm_exec")
+  @@index([SMM_COD_EXTERNO], map: "idx2")
+  @@index([SMM_IND_URG], map: "ix_IndexName")
+  @@index([SMM_CML_FAT_SERIE, SMM_CML_FAT_NUM], map: "smm_cml_fat_idx")
+  @@index([SMM_COD_AMOSTRA], map: "smm_cod_amo_idx")
+  @@index([SMM_PAC_REG, SMM_HSP_NUM, SMM_CTH_NUM], map: "smm_cth_idx")
+  @@index([SMM_CTLE_CNV], map: "smm_ctle_idx")
+  @@index([SMM_DT_RESULT], map: "smm_dt_result_idx")
+  @@index([SMM_DTHR_ALTER], map: "smm_dthr_alter_idx")
+  @@index([SMM_DTHR_COLETA], map: "smm_dthr_coleta_idx")
+  @@index([SMM_TPCOD, SMM_COD, SMM_DTHR_EXEC], map: "smm_dthr_idx")
+  @@index([SMM_EXEC], map: "smm_exec_cod_amostra_idx")
+  @@index([SMM_FAT_SERIE, SMM_FAT], map: "smm_fat_idx")
+  @@index([SMM_HON_SEQ], map: "smm_hon_idx")
+  @@index([SMM_PAC_REG, SMM_HSP_NUM, SMM_LAC_NUM], map: "smm_lac_idx")
+  @@index([SMM_MNS_SERIE, SMM_MNS_NUM], map: "smm_mns_idx")
+  @@index([SMM_MTE_SERIE, SMM_MTE_SEQ], map: "smm_mte_idx")
+  @@index([SMM_PAC_REG, SMM_DTHR_LANC], map: "smm_pac_lanc_idx")
+  @@index([SMM_OSM_SERIE, SMM_OSM, SMM_NUM, SMM_TPCOD, SMM_COD], map: "smm_rcl_idx")
+  @@index([SMM_SMA_SERIE, SMM_SMA_NUM, SMM_ISM_SEQ], map: "smm_sma_idx")
+}
