@@ -28,8 +28,8 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  await app.listen(PORT, () =>
-    console.log(`Server is running in port ${PORT}`),
-  );
+  app.listen(4444, '0.0.0.0', () => {
+    console.log('Server is running on port 4444');
+  });
 }
 bootstrap();
