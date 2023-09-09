@@ -28,7 +28,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  app.listen(4444, '0.0.0.0', () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log('Server is running on port 4444');
   });
 }
