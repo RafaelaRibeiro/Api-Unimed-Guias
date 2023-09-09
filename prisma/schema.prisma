@@ -7,6 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model GCC_TOKEN {
+  GCC_T_GCC_COD String @db.Char(3)
+  gcc_t_token   String @db.VarChar()
+  GCC_T_STATUS  String @default("A") @db.Char(1)
+
+  @@id([GCC_T_GCC_COD], map: "GCC_TOKEN_PK")
+}
+
 model OSM {
   OSM_SERIE                      Int       @db.SmallInt
   OSM_NUM                        Int
