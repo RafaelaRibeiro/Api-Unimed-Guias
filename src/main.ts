@@ -29,7 +29,7 @@ async function bootstrap() {
     }),
   );
   app.listen(PORT, '0.0.0.0', () => {
-    console.log('Server is running on port 4444');
+    console.log(`Server is running on port  ${PORT}`);
   });
 }
 bootstrap();
