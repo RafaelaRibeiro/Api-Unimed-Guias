@@ -357,3 +357,13 @@ model SMM {
   @@index([SMM_OSM_SERIE, SMM_OSM, SMM_NUM, SMM_TPCOD, SMM_COD], map: "smm_rcl_idx")
   @@index([SMM_SMA_SERIE, SMM_SMA_NUM, SMM_ISM_SEQ], map: "smm_sma_idx")
 }
+
+model guia_exec {
+  guia_e_osm_serie Int
+  guia_e_osm_num   Int
+  guia_e_guia      String
+  guia_cod_tuss    String?
+  guia_e_dthr_reg  DateTime @default(now())
+
+  @@id([guia_e_osm_serie, guia_e_osm_num, guia_e_guia], map: "guia_exec_PK")
+}
