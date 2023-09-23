@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/prisma/prisma.service';
-import { guidesDTO } from './guides.dto';
+import { guidesDTO } from '../guides.dto';
 
 @Injectable()
-export class GuidesService {
+export class ListGuidesService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAll() {
+  async listAll() {
     const guides: guidesDTO[] = await this.prisma.$queryRaw`
     select 
      osm_serie,
@@ -64,17 +64,6 @@ export class GuidesService {
       smm_exec not in ('C','P')
       group by osm_serie, osm_num, osm_str, osm_mcnv,convert( varchar(10), osm_serie) + convert(varchar(10), osm_num), smm_senha, smm_pre_ccv, psv_crm, smm_qt
     `;
-
-    const formattedData = guides.map((guide) => ({
-      guia_e_osm_serie: guide.osm_serie,
-      guia_e_osm_num: guide.osm_num,
-      guia_e_guia: guide.numGuia,
-      guia_cod_tuss: guide.codTuss,
-    }));
-
-    await this.prisma.guia_exec.createMany({
-      data: formattedData,
-    });
 
     return guides;
   }
