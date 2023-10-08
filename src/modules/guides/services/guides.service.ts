@@ -1,29 +1,33 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { PrismaService } from 'src/shared/prisma/prisma.service';
-import { guidesDTO } from '../guides.dto';
-import { ListGuidesService } from './list-guides.service';
+import { createGuidesDTO } from '../guides.dto';
 
 @Injectable()
 export class GuidesService {
-  constructor(
-    private readonly prisma: PrismaService,
-    private readonly listGuidesService: ListGuidesService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async create() {
-    const guides: guidesDTO[] = await this.listGuidesService.listAll();
+  async create(guides: createGuidesDTO[]) {
+    try {
+      const now = new Date();
+      const formattedData = guides.map((guide) => ({
+        guia_e_osm_serie: guide.osm_serie,
+        guia_e_osm_num: guide.osm_num,
+        guia_e_guia: guide.guia,
+        guias_e_senha: guide.senha,
+        guia_cod_tuss: guide.guia_cod_tuss,
+        guia_e_dthr_reg: now,
+      }));
 
-    const formattedData = guides.map((guide) => ({
-      guia_e_osm_serie: guide.osm_serie,
-      guia_e_osm_num: guide.osm_num,
-      guia_e_guia: guide.numGuia,
-      guia_cod_tuss: guide.codTuss,
-    }));
+      await this.prisma.guia_exec.createMany({
+        data: formattedData,
+      });
 
-    await this.prisma.guia_exec.createMany({
-      data: formattedData,
-    });
-
-    return guides;
+      return guides;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Erro ao criar guias',
+        error.message,
+      );
+    }
   }
 }

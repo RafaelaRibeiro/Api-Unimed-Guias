@@ -362,6 +362,7 @@ model guia_exec {
   guia_e_osm_serie Int
   guia_e_osm_num   Int
   guia_e_guia      String
+  guia_e_senha     String?
   guia_cod_tuss    String?
   guia_e_dthr_reg  DateTime @default(now())
 
